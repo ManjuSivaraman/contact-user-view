@@ -1,1 +1,8 @@
-/* You can add global styles to this file, and also import other style files */
+.font-family{
+    font-family: "Lucida Console", Monaco, monospace;
+}
+
+.font-style{
+    font-weight: 600;
+    font-size: 18px;
+}

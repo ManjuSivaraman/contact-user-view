@@ -1,0 +1,47 @@
+<div class="container font-family">
+  <div class="row">
+    <div class="col-md-6 border rounded m-5 mx-auto ">
+      <div class="row text-center font-style text-white bg-primary p-2">
+        <div class="col-8">Contacts</div>
+        <div type="button" class="" data-toggle="modal" data-target="#myModal">Add</div>
+        <div class="col-2">Search</div>
+      </div>
+      <div class="text-muted m-2">No Contacts Found</div>
+    </div>
+  </div>
+</div>
+
+<!-- Pop Up Form -->
+<div class="modal fade" id="myModal" role="dialog">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      <div class="modal-header bg-primary text-white p-0 p-2">
+        <h4 class="modal-title">New Contact</h4>
+      </div>
+      <div class="modal-body mx-auto">
+        <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+          <div>
+            <input type="text" class="form-control m-2" formControlName="name" placeholder="Name">
+            <span *ngIf="!contactForm.get('name').valid && contactForm.get('name').touched">Please Enter Name</span>
+          </div>
+          <div>
+            <input type="number" class="form-control m-2" formControlName="number" placeholder="Phone Number">
+          </div>
+          <input type="email" class="form-control m-2" formControlName="email" placeholder="E-Mail">
+          <input type="date" class="form-control m-2" formControlName="dob">
+          <div *ngFor = "let gen of gender">
+            <label><input type="radio" formControlName="gender" class="mr-1" [value]= "gen">{{gen}}</label>
+          </div>
+          <div formGroupName="address">
+            <input type="text" class="form-control m-2" formControlName="street" placeholder="Street">
+            <input type="text" class="form-control m-2" formControlName="city" placeholder="city">
+            <input type="text" class="form-control m-2" formControlName="state" placeholder="state">
+          </div>
+          <div class="modal-footer">
+            <button type="submit" class="btn btn-primary" [disabled]="!contactForm.valid">Add</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

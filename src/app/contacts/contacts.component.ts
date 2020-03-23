@@ -29,14 +29,15 @@ export class ContactsComponent implements OnInit {
   onSubmit() {
     var contacts = this.contactForm.value;
     console.log("Contacts" , contacts )
-    // var addCon = this.contact.addContact(contacts)
-    // addCon.subscribe(
-    //   responce => {
-    //     console.log("Add Responce", responce)
-    //   },
-    //   err => {
-    //     console.log("add err", err)
-    //   })
+    var addCon = this.contact.addContact(contacts)
+    console.log('addcon' , addCon)
+    addCon.subscribe(
+      responce => {
+        console.log("Add Responce", responce)
+      },
+      err => {
+        console.log("add err", err)
+      })
   }
 
   ngOnInit(): void {

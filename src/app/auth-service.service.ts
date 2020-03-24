@@ -40,5 +40,5 @@ export class AuthServiceService {
         console.log('Sign Up Err:', err.message);
       });    
   }
-  
+
 }

@@ -9,7 +9,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AdminComponent } from './admin/admin.component';
 
 import { AngularFireModule } from 'angularfire2';
-import { environment } from '../environments/environment';
+import { environment } from '../environments/environment.prod';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { AuthServiceService } from './auth-service.service';
 

@@ -30,6 +30,7 @@ export class ContactsComponent implements OnInit {
     var contacts = this.contactForm.value;
     console.log("Contacts" , contacts )
     var addCon = this.contact.addContact(contacts)
+
     console.log('addcon' , addCon)
     addCon.subscribe(
       responce => {
@@ -41,6 +42,15 @@ export class ContactsComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    var getcon = this.contact.getcontacts();
+    getcon.subscribe(
+      responce => {
+        console.log("Get Responce", responce)
+      },
+      err => {
+        console.log("Get err", err)
+      })
   }
+
 
 }

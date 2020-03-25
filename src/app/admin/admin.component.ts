@@ -1,30 +1,30 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl } from '@angular/forms';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { AuthServiceService } from '../auth-service.service';
-
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-admin',
   templateUrl: './admin.component.html',
   styleUrls: ['./admin.component.css']
 })
+
 export class AdminComponent implements OnInit {
 
-  constructor(public authService: AuthServiceService) { }
+  constructor(public authService: AuthServiceService,
+    private router: Router) { }
 
   adminForm = new FormGroup({
-    emailAcc: new FormControl(''),
-    password: new FormControl('')
+    emailAcc: new FormControl('', Validators.required),
+    password: new FormControl('', Validators.required)
   })
-  
-  login() {
 
+  login() {
     this.authService.login(this.adminForm.value.emailAcc, this.adminForm.value.password);
-    
   }
 
   signup() {
-    this.authService.signup(this.adminForm.value.emailAcc, this.adminForm.value.password); 
+    this.authService.signup(this.adminForm.value.emailAcc, this.adminForm.value.password);
   }
 
   ngOnInit(): void {

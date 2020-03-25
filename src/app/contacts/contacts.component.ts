@@ -42,14 +42,14 @@ export class ContactsComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    var getcon = this.contact.getcontacts();
-    getcon.subscribe(
-      responce => {
-        console.log("Get Responce", responce)
-      },
-      err => {
-        console.log("Get err", err)
-      })
+    // var getcon = this.contact.getcontacts();
+    // getcon.subscribe(
+    //   responce => {
+    //     console.log("Get Responce", responce)
+    //   },
+    //   err => {
+    //     console.log("Get err", err)
+    //   })
   }
 
 

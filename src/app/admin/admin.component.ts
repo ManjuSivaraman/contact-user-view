@@ -21,6 +21,7 @@ export class AdminComponent implements OnInit {
 
   login() {
     this.authService.login(this.adminForm.value.emailAcc, this.adminForm.value.password);
+    
   }
 
   signup() {

@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-
+import { Router } from '@angular/router';
 import { AngularFireAuth } from 'angularfire2/auth';
 // import * as firebase from 'firebase/app';
 
@@ -12,7 +12,8 @@ export class AuthServiceService {
 
   // user; 
 
-  constructor(private firebaseAuth: AngularFireAuth) {
+  constructor(private firebaseAuth: AngularFireAuth , 
+    private router: Router) {
     // this.user = firebaseAuth.authState;
    }
 
@@ -22,6 +23,7 @@ export class AuthServiceService {
       .auth
       .signInWithEmailAndPassword(emailAcc, password)
       .then(value => {
+        this.router.navigateByUrl('/home');
         console.log('Login Success' , value);
       })
       .catch(err => {

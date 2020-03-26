@@ -13,6 +13,9 @@ import { AuthServiceService } from './auth-service.service';
 import { AdminComponent } from './admin/admin.component';
 import {ContactsComponent} from './contacts/contacts.component';
 
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ngx-toastr';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -25,7 +28,9 @@ import {ContactsComponent} from './contacts/contacts.component';
     AppRoutingModule,
     ReactiveFormsModule,
     AngularFireModule.initializeApp(environment.firebase),
-    AngularFireAuthModule
+    AngularFireAuthModule,
+    BrowserAnimationsModule, // required animations module
+    ToastrModule.forRoot() // ToastrModule added
   ],
   providers: [AuthServiceService],
   bootstrap: [AppComponent]

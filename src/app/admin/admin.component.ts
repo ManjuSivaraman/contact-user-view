@@ -3,10 +3,11 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { AuthServiceService } from '../auth-service.service';
 import { Router } from '@angular/router';
 
+
 @Component({
   selector: 'app-admin',
   templateUrl: './admin.component.html',
-  styleUrls: ['./admin.component.css']
+  styleUrls: ['./admin.component.css' ]
 })
 
 export class AdminComponent implements OnInit {
@@ -21,7 +22,6 @@ export class AdminComponent implements OnInit {
 
   login() {
     this.authService.login(this.adminForm.value.emailAcc, this.adminForm.value.password);
-    
   }
 
   signup() {
@@ -30,5 +30,7 @@ export class AdminComponent implements OnInit {
 
   ngOnInit(): void {
   }
+
+ 
 
 }

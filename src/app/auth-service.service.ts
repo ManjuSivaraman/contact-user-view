@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { AngularFireAuth } from 'angularfire2/auth';
 // import * as firebase from 'firebase/app';
-
+import { ToastrService } from 'ngx-toastr';
 
 @Injectable({
   providedIn: 'root'
@@ -10,10 +10,9 @@ import { AngularFireAuth } from 'angularfire2/auth';
 
 export class AuthServiceService {
 
-  // user; 
-
   constructor(private firebaseAuth: AngularFireAuth , 
-    private router: Router) {
+    private router: Router,
+    private toastr: ToastrService) {
     // this.user = firebaseAuth.authState;
    }
 
@@ -27,6 +26,7 @@ export class AuthServiceService {
         console.log('Login Success' , value);
       })
       .catch(err => {
+        this.showError()
         console.log('Login Err', err.message);
       });
   }
@@ -42,5 +42,9 @@ export class AuthServiceService {
         console.log('Sign Up Err:', err.message);
       });    
   }
+
+  showError(){
+    this.toastr.error('Login ID or Passward is incorrect');
+}
 
 }

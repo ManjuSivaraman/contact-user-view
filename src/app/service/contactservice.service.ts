@@ -13,7 +13,7 @@ export class ContactserviceService {
     return this.http.post('https://node-apitest-inclabs.herokuapp.com/create' , contacts);
   }
 
-  // getcontacts(){
-  //   return this.http.get('https://node-apitest-inclabs.herokuapp.com/read');
-  // }
+  getcontacts(){
+    return this.http.get('https://node-apitest-inclabs.herokuapp.com/read');
+  }
 }

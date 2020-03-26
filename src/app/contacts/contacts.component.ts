@@ -9,6 +9,7 @@ import { ContactserviceService } from '../service/contactservice.service';
 })
 export class ContactsComponent implements OnInit {
 
+  getcontacts;
   gender = ["Male", "Female"];
 
   constructor(private contact: ContactserviceService) { }
@@ -42,14 +43,15 @@ export class ContactsComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    // var getcon = this.contact.getcontacts();
-    // getcon.subscribe(
-    //   responce => {
-    //     console.log("Get Responce", responce)
-    //   },
-    //   err => {
-    //     console.log("Get err", err)
-    //   })
+    var getcon = this.contact.getcontacts();
+    getcon.subscribe(
+      responce => {
+        console.log("Get Responce", responce);
+        this.getcontacts = responce;
+      },
+      err => {
+        console.log("Get err", err)
+      })
   }
 
 

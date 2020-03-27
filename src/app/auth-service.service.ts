@@ -10,23 +10,23 @@ import { ToastrService } from 'ngx-toastr';
 
 export class AuthServiceService {
 
-  constructor(private firebaseAuth: AngularFireAuth , 
+  constructor(private firebaseAuth: AngularFireAuth,
     private router: Router,
     private toastr: ToastrService) {
     // this.user = firebaseAuth.authState;
-   }
+  }
 
-   login(emailloginAcc: string, loginpassword: string) {
-     console.log("auth", this.firebaseAuth.auth)
+  login(emailloginAcc: string, loginpassword: string) {
+    console.log("auth", this.firebaseAuth.auth)
     this.firebaseAuth
       .auth
       .signInWithEmailAndPassword(emailloginAcc, loginpassword)
       .then(value => {
         this.router.navigateByUrl('/home');
-        console.log('Login Success' , value);
+        console.log('Login Success', value);
       })
       .catch(err => {
-        this.showError()
+        this.showsigninError()
         console.log('Login Err', err.message);
       });
   }
@@ -39,12 +39,17 @@ export class AuthServiceService {
         console.log('Sign Up Success', value);
       })
       .catch(err => {
+        this.showsignupError()
         console.log('Sign Up Err:', err.message);
-      });    
+      });
   }
 
-  showError(){
+  showsigninError() {
     this.toastr.error('Login ID or Passward is incorrect');
-}
+  }
+
+  showsignupError() {
+    this.toastr.error('This email id is already exists');
+  }
 
 }

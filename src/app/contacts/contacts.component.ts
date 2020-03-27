@@ -53,6 +53,4 @@ export class ContactsComponent implements OnInit {
         console.log("Get err", err)
       })
   }
-
-
 }

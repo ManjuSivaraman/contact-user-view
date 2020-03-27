@@ -16,11 +16,11 @@ export class AuthServiceService {
     // this.user = firebaseAuth.authState;
    }
 
-   login(emailAcc: string, password: string) {
+   login(emailloginAcc: string, loginpassword: string) {
      console.log("auth", this.firebaseAuth.auth)
     this.firebaseAuth
       .auth
-      .signInWithEmailAndPassword(emailAcc, password)
+      .signInWithEmailAndPassword(emailloginAcc, loginpassword)
       .then(value => {
         this.router.navigateByUrl('/home');
         console.log('Login Success' , value);
@@ -31,10 +31,10 @@ export class AuthServiceService {
       });
   }
 
-  signup(email: string, password: string) {
+  signup(emailsignupAcc: string, signuppassword: string) {
     this.firebaseAuth
       .auth
-      .createUserWithEmailAndPassword(email, password)
+      .createUserWithEmailAndPassword(emailsignupAcc, signuppassword)
       .then(value => {
         console.log('Sign Up Success', value);
       })

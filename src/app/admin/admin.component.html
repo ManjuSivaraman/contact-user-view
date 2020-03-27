@@ -1,15 +1,47 @@
-<div class="container">
-    <div class="row m-5">
-        <div class="col-md-4 mx-auto shadow p-5">
-            <form [formGroup]="adminForm">
-                <h5 class="text-center mb-3">Account</h5>
-                <input type="text" class="form-control mb-3" formControlName="emailAcc" placeholder="Enter Email Id">
-                <input type="text" class="form-control mb-3" formControlName="password" placeholder="Enter Password">
-                <div class="text-center">
-                    <button type="submit" class="btn btn-primary mr-2"  [disabled]="!adminForm.valid" (click) = "login()">Log In</button>
-                    <button type="submit" class="btn btn-secondary" (click) = "signup()">Sign Up</button>
-                </div>
-              </form>
+<section class="bg-litegray">
+    <div *ngIf="show" class="container">
+        <div class="row p-5">
+            <div class="col-md-5 mx-auto border shadow  bg-white p-5">
+                <form [formGroup]="adminloginForm">
+                    <h3 class="text-center letter-spc accCol mb-4">Account Sign In</h3>
+                    <input type="text" class="border w-100 pd" formControlName="emailloginAcc" placeholder="Email">
+                    <input type="text" class="border w-100 pd" formControlName="loginpassword" placeholder="Password">
+                    <div class="text-center mt-4">
+                        <button type="submit" class="font-sz bg-blue text-white border-0 w-100 p-3"
+                            (click)="login()">SIGN IN
+                        </button>
+                    </div>
+                    <div class="mt-4 text-center createAcc">
+                        Create an account? <a class="text-blue" (click)=signupForm()>Sign up</a>
+                    </div>
+                </form>
+            </div>
         </div>
     </div>
-</div>
+</section>
+
+<section class="bg-litegray">
+    <div *ngIf="!show" class="container">
+        <div class="row p-5">
+            <div class="col-md-5 mx-auto border shadow  bg-white p-5">
+                <form [formGroup]="adminsignupForm">
+                    <h3 class="text-center letter-spc accCol mb-4">Register</h3>
+                    <div class="m-4 text-center createAcc">
+                        Please fill in this form to create an account!
+                    </div>
+                    <input type="text" class="border w-100 pd" formControlName="UserName" placeholder="User Name">
+                    <input type="text" class="border w-100 pd" formControlName="emailsignupAcc" placeholder="Email">
+                    <input type="text" class="border w-100 pd" formControlName="signuppassword" placeholder="Password">
+                    <div class="text-center mt-4">
+                        <button type="submit" class="font-sz bg-blue text-white border-0 w-100 p-3"
+                            (click)="signup()">SIGN UP
+                        </button>
+                    </div>
+                    <div class="mt-4 text-center createAcc">
+                        Already have an account? <a class="text-blue" (click)=signinForm()> Sign in</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>

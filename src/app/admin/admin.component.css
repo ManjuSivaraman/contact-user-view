@@ -1,0 +1,34 @@
+.pd{
+    padding: 20px 30px !important;
+}
+
+.accCol{
+    color: #555;
+}
+
+.letter-spc{
+    letter-spacing: 0.05em;
+}
+
+.font-sz{
+    font-size: 15px;
+}
+
+.bg-blue{
+    background-color: #4272d7;
+}
+
+.text-blue{
+    color: #4272d7;
+}
+
+.bg-litegray{
+    background-color:#DCDCDC;
+}
+
+.createAcc{
+    color: #999;
+    font-size: 15px;
+    letter-spacing: 0.05em;
+}
+

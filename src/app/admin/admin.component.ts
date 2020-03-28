@@ -36,7 +36,7 @@ export class AdminComponent implements OnInit {
 
   signup() {
     this.authService.signup(this.adminsignupForm.value.emailsignupAcc, this.adminsignupForm.value.signuppassword , calbackSignupresponce => {
-      if(calbackSignupresponce.additionalUserInfo.isNewUser){
+      if(calbackSignupresponce){
         this.show = true;
         this.showsignupsuccess()
       }         

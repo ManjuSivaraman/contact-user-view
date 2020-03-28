@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { AuthServiceService } from '../auth-service.service';
 import { Router } from '@angular/router';
-
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-admin',
@@ -15,7 +15,8 @@ export class AdminComponent implements OnInit {
   show = true;
 
   constructor(public authService: AuthServiceService,
-    private router: Router) { }
+    private router: Router,
+    private toastr: ToastrService) { }
 
   adminloginForm = new FormGroup({
     emailloginAcc: new FormControl(''),
@@ -34,8 +35,19 @@ export class AdminComponent implements OnInit {
   }
 
   signup() {
-    this.authService.signup(this.adminsignupForm.value.emailsignupAcc, this.adminsignupForm.value.signuppassword);
+    this.authService.signup(this.adminsignupForm.value.emailsignupAcc, this.adminsignupForm.value.signuppassword , calbackSignupresponce => {
+      if(calbackSignupresponce.additionalUserInfo.isNewUser){
+        this.show = true;
+        this.showsignupsuccess()
+      }         
+    });
+  
   }
+
+  showsignupsuccess() {
+    this.toastr.success('Account created successfully');
+  }
+  
 
   ngOnInit(): void {
   }

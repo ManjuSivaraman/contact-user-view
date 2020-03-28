@@ -31,25 +31,23 @@ export class AuthServiceService {
       });
   }
 
-  signup(emailsignupAcc: string, signuppassword: string) {
+  signup(emailsignupAcc: string, signuppassword: string , callback) {
     this.firebaseAuth
       .auth
       .createUserWithEmailAndPassword(emailsignupAcc, signuppassword)
-      .then(value => {
-        console.log('Sign Up Success', value);
-      })
-      .catch(err => {
+      .then(contactData => {
+        callback(contactData);
+      }).catch(contacterr => {
+        console.log("err" , contacterr)
         this.showsignupError()
-        console.log('Sign Up Err:', err.message);
       });
   }
 
   showsigninError() {
     this.toastr.error('Login ID or Passward is incorrect');
   }
-
   showsignupError() {
-    this.toastr.error('This email id is already exists');
+    this.toastr.error('Please Sign Up a proper value');
   }
 
 }

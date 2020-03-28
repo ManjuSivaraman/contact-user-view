@@ -41,14 +41,12 @@ export class AdminComponent implements OnInit {
         this.showsignupsuccess()
       }         
     });
-  
   }
 
   showsignupsuccess() {
     this.toastr.success('Account created successfully');
   }
   
-
   ngOnInit(): void {
   }
 
